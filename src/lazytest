@@ -1,0 +1,790 @@
+	.file	"lazytest.cpp"
+	.text
+	.p2align 4,,15
+	.globl	_Z3foov
+	.type	_Z3foov, @function
+_Z3foov:
+.LFB1636:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA1636
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	movl	$1, %edi
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 64
+.LEHB0:
+	call	_Znwm
+.LEHE0:
+	movl	$1, %edi
+	movq	%rax, %rbp
+	movzbl	._84(%rip), %eax
+	movb	%al, 0(%rbp)
+.LEHB1:
+	call	_Znwm
+.LEHE1:
+	movq	%rax, %r12
+	movzbl	._85(%rip), %eax
+	movl	$1, %edi
+	movb	%al, (%r12)
+.LEHB2:
+	call	_Znwm
+.LEHE2:
+	movq	%rax, %r13
+	movzbl	._86(%rip), %eax
+	movl	$1, %edi
+	movb	%al, 0(%r13)
+.LEHB3:
+	call	_Znwm
+.LEHE3:
+	movq	%rax, %rbx
+	movzbl	._87(%rip), %eax
+	xorl	%edx, %edx
+	movb	%al, (%rbx)
+.L12:
+	movzbl	(%r12,%rdx), %eax
+	addb	0(%rbp,%rdx), %al
+	mulb	0(%r13,%rdx)
+	movb	%al, (%rbx,%rdx)
+	addq	$1, %rdx
+	cmpq	$1, %rdx
+	jne	.L12
+	movzbl	(%rbx), %esi
+	movl	$_ZSt4cout, %edi
+.LEHB4:
+	call	_ZNSolsEi
+	movq	%rax, %r15
+	movq	(%rax), %rax
+	movq	-24(%rax), %rax
+	movq	240(%r15,%rax), %r14
+	testq	%r14, %r14
+	je	.L36
+	cmpb	$0, 56(%r14)
+	je	.L14
+	movzbl	67(%r14), %eax
+.L15:
+	movsbl	%al, %esi
+	movq	%r15, %rdi
+	call	_ZNSo3putEc
+	movq	%rax, %rdi
+	call	_ZNSo5flushEv
+	movq	%rbx, %rdi
+	call	_ZdlPv
+	movq	%r13, %rdi
+	call	_ZdlPv
+	movq	%r12, %rdi
+	call	_ZdlPv
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	movq	%rbp, %rdi
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	jmp	_ZdlPv
+	.p2align 4,,10
+	.p2align 3
+.L14:
+	.cfi_restore_state
+	movq	%r14, %rdi
+	call	_ZNKSt5ctypeIcE13_M_widen_initEv
+	movq	(%r14), %rax
+	movl	$10, %esi
+	movq	%r14, %rdi
+	call	*48(%rax)
+	jmp	.L15
+.L36:
+	call	_ZSt16__throw_bad_castv
+.LEHE4:
+.L23:
+	movq	%rax, %r14
+	movq	%rbx, %rdi
+	vzeroupper
+	call	_ZdlPv
+	movq	%r14, %rbx
+.L17:
+	movq	%r13, %rdi
+	call	_ZdlPv
+.L18:
+	movq	%r12, %rdi
+	call	_ZdlPv
+.L19:
+	movq	%rbp, %rdi
+	call	_ZdlPv
+	movq	%rbx, %rdi
+.LEHB5:
+	call	_Unwind_Resume
+.LEHE5:
+.L22:
+	movq	%rax, %rbx
+	vzeroupper
+	jmp	.L17
+.L21:
+	movq	%rax, %rbx
+	vzeroupper
+	jmp	.L18
+.L20:
+	movq	%rax, %rbx
+	vzeroupper
+	jmp	.L19
+	.cfi_endproc
+.LFE1636:
+	.globl	__gxx_personality_v0
+	.section	.gcc_except_table,"a",@progbits
+.LLSDA1636:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE1636-.LLSDACSB1636
+.LLSDACSB1636:
+	.uleb128 .LEHB0-.LFB1636
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB1636
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 .L20-.LFB1636
+	.uleb128 0
+	.uleb128 .LEHB2-.LFB1636
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 .L21-.LFB1636
+	.uleb128 0
+	.uleb128 .LEHB3-.LFB1636
+	.uleb128 .LEHE3-.LEHB3
+	.uleb128 .L22-.LFB1636
+	.uleb128 0
+	.uleb128 .LEHB4-.LFB1636
+	.uleb128 .LEHE4-.LEHB4
+	.uleb128 .L23-.LFB1636
+	.uleb128 0
+	.uleb128 .LEHB5-.LFB1636
+	.uleb128 .LEHE5-.LEHB5
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE1636:
+	.text
+	.size	_Z3foov, .-_Z3foov
+	.section	.text._ZNSt6vectorIhSaIhEEC2ESt16initializer_listIhERKS0_,"axG",@progbits,_ZNSt6vectorIhSaIhEEC5ESt16initializer_listIhERKS0_,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6vectorIhSaIhEEC2ESt16initializer_listIhERKS0_
+	.type	_ZNSt6vectorIhSaIhEEC2ESt16initializer_listIhERKS0_, @function
+_ZNSt6vectorIhSaIhEEC2ESt16initializer_listIhERKS0_:
+.LFB1707:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA1707
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	movq	%rsi, %r13
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	movq	%rdx, %rbp
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 48
+	movq	$0, (%rdi)
+	movq	$0, 8(%rdi)
+	movq	$0, 16(%rdi)
+	xorl	%edi, %edi
+	testq	%rdx, %rdx
+	jne	.L55
+.L38:
+	leaq	(%rdi,%rbp), %r12
+	testq	%rbp, %rbp
+	movq	%rdi, (%rbx)
+	movq	%r12, 16(%rbx)
+	je	.L39
+	movq	%rbp, %rdx
+	movq	%r13, %rsi
+	call	memmove
+.L39:
+	movq	%r12, 8(%rbx)
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L55:
+	.cfi_restore_state
+	movq	%rdx, %rdi
+.LEHB6:
+	call	_Znwm
+.LEHE6:
+	movq	%rax, %rdi
+	jmp	.L38
+.L43:
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+	testq	%rdi, %rdi
+	je	.L52
+	vzeroupper
+	call	_ZdlPv
+.L41:
+	movq	%rbp, %rdi
+.LEHB7:
+	call	_Unwind_Resume
+.LEHE7:
+.L52:
+	vzeroupper
+	jmp	.L41
+	.cfi_endproc
+.LFE1707:
+	.section	.gcc_except_table
+.LLSDA1707:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE1707-.LLSDACSB1707
+.LLSDACSB1707:
+	.uleb128 .LEHB6-.LFB1707
+	.uleb128 .LEHE6-.LEHB6
+	.uleb128 .L43-.LFB1707
+	.uleb128 0
+	.uleb128 .LEHB7-.LFB1707
+	.uleb128 .LEHE7-.LEHB7
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE1707:
+	.section	.text._ZNSt6vectorIhSaIhEEC2ESt16initializer_listIhERKS0_,"axG",@progbits,_ZNSt6vectorIhSaIhEEC5ESt16initializer_listIhERKS0_,comdat
+	.size	_ZNSt6vectorIhSaIhEEC2ESt16initializer_listIhERKS0_, .-_ZNSt6vectorIhSaIhEEC2ESt16initializer_listIhERKS0_
+	.weak	_ZNSt6vectorIhSaIhEEC1ESt16initializer_listIhERKS0_
+	.set	_ZNSt6vectorIhSaIhEEC1ESt16initializer_listIhERKS0_,_ZNSt6vectorIhSaIhEEC2ESt16initializer_listIhERKS0_
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC4:
+	.string	"lazytest.cpp"
+.LC5:
+	.string	"mLhs.size() == mRhs.size()"
+	.section	.text._ZN4test5ImageIhEaSINS_7TplViewIhNS3_IhS1_S1_St4plusEES1_St10multipliesEEEERS1_RKT_,"axG",@progbits,_ZN4test5ImageIhEaSINS_7TplViewIhNS3_IhS1_S1_St4plusEES1_St10multipliesEEEERS1_RKT_,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZN4test5ImageIhEaSINS_7TplViewIhNS3_IhS1_S1_St4plusEES1_St10multipliesEEEERS1_RKT_
+	.type	_ZN4test5ImageIhEaSINS_7TplViewIhNS3_IhS1_S1_St4plusEES1_St10multipliesEEEERS1_RKT_, @function
+_ZN4test5ImageIhEaSINS_7TplViewIhNS3_IhS1_S1_St4plusEES1_St10multipliesEEEERS1_RKT_:
+.LFB1721:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movq	(%rdi), %rcx
+	movq	%rcx, 8(%rdi)
+	movq	(%rsi), %rax
+	movq	(%rax), %rdx
+	movq	8(%rax), %rax
+	movq	(%rdx), %r10
+	movq	(%rax), %r11
+	movq	8(%rdx), %rdx
+	movq	8(%rax), %rax
+	subq	%r10, %rdx
+	subq	%r11, %rax
+	cmpq	%rax, %rdx
+	jne	.L60
+	movq	8(%rsi), %rax
+	movq	(%rax), %r9
+	movq	8(%rax), %rax
+	subq	%r9, %rax
+	cmpq	%rdx, %rax
+	jne	.L61
+	xorl	%edx, %edx
+	testq	%rax, %rax
+	movl	$1, %r8d
+	jne	.L65
+	jmp	.L66
+	.p2align 4,,10
+	.p2align 3
+.L68:
+	movq	(%rdi), %rcx
+	movq	%r8, %rdx
+	movq	%rax, %r8
+.L65:
+	movzbl	(%r10,%rdx), %eax
+	addb	(%r11,%rdx), %al
+	mulb	(%r9,%rdx)
+	movb	%al, (%rcx,%rdx)
+	movq	(%rsi), %rcx
+	movq	(%rcx), %rdx
+	movq	8(%rcx), %rcx
+	movq	(%rdx), %r10
+	movq	(%rcx), %r11
+	movq	8(%rdx), %rdx
+	movq	8(%rcx), %rcx
+	subq	%r10, %rdx
+	subq	%r11, %rcx
+	cmpq	%rcx, %rdx
+	jne	.L60
+	movq	8(%rsi), %rax
+	movq	(%rax), %r9
+	movq	8(%rax), %rcx
+	subq	%r9, %rcx
+	cmpq	%rdx, %rcx
+	jne	.L61
+	leaq	1(%r8), %rax
+	cmpq	%rcx, %r8
+	jb	.L68
+.L66:
+	movq	%rdi, %rax
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+.L60:
+	.cfi_restore_state
+	movl	$_ZZNK4test7TplViewIhNS_5ImageIhEES2_St4plusE4sizeEvE19__PRETTY_FUNCTION__, %ecx
+	movl	$46, %edx
+	movl	$.LC4, %esi
+	movl	$.LC5, %edi
+	call	__assert_fail
+.L61:
+	movl	$_ZZNK4test7TplViewIhNS0_IhNS_5ImageIhEES2_St4plusEES2_St10multipliesE4sizeEvE19__PRETTY_FUNCTION__, %ecx
+	movl	$46, %edx
+	movl	$.LC4, %esi
+	movl	$.LC5, %edi
+	call	__assert_fail
+	.cfi_endproc
+.LFE1721:
+	.size	_ZN4test5ImageIhEaSINS_7TplViewIhNS3_IhS1_S1_St4plusEES1_St10multipliesEEEERS1_RKT_, .-_ZN4test5ImageIhEaSINS_7TplViewIhNS3_IhS1_S1_St4plusEES1_St10multipliesEEEERS1_RKT_
+	.section	.text._ZNSt6vectorIhSaIhEEC2ERKS1_,"axG",@progbits,_ZNSt6vectorIhSaIhEEC5ERKS1_,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6vectorIhSaIhEEC2ERKS1_
+	.type	_ZNSt6vectorIhSaIhEEC2ERKS1_, @function
+_ZNSt6vectorIhSaIhEEC2ERKS1_:
+.LFB1788:
+	.cfi_startproc
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	xorl	%ecx, %ecx
+	movq	%rsi, %r12
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	movq	%rdi, %rbx
+	movq	8(%rsi), %rbp
+	subq	(%rsi), %rbp
+	movq	$0, (%rdi)
+	movq	$0, 8(%rdi)
+	movq	$0, 16(%rdi)
+	testq	%rbp, %rbp
+	jne	.L77
+.L70:
+	addq	%rcx, %rbp
+	movq	%rcx, (%rbx)
+	xorl	%eax, %eax
+	movq	%rbp, 16(%rbx)
+	movq	%rcx, 8(%rbx)
+	movq	(%r12), %rsi
+	movq	8(%r12), %rdx
+	subq	%rsi, %rdx
+	movq	%rdx, %rbp
+	je	.L71
+	movq	%rcx, %rdi
+	call	memmove
+	movq	%rax, %rcx
+	movq	%rbp, %rax
+.L71:
+	addq	%rax, %rcx
+	movq	%rcx, 8(%rbx)
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L77:
+	.cfi_restore_state
+	movq	%rbp, %rdi
+	call	_Znwm
+	movq	%rax, %rcx
+	jmp	.L70
+	.cfi_endproc
+.LFE1788:
+	.size	_ZNSt6vectorIhSaIhEEC2ERKS1_, .-_ZNSt6vectorIhSaIhEEC2ERKS1_
+	.weak	_ZNSt6vectorIhSaIhEEC1ERKS1_
+	.set	_ZNSt6vectorIhSaIhEEC1ERKS1_,_ZNSt6vectorIhSaIhEEC2ERKS1_
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1638:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA1638
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movl	$._88, %esi
+	movl	$1, %edx
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	subq	$224, %rsp
+	.cfi_offset 13, -24
+	.cfi_offset 12, -32
+	.cfi_offset 3, -40
+	leaq	192(%rsp), %rdi
+	leaq	160(%rsp), %rcx
+.LEHB8:
+	call	_ZNSt6vectorIhSaIhEEC1ESt16initializer_listIhERKS0_
+.LEHE8:
+	leaq	192(%rsp), %rsi
+	movq	%rsp, %rdi
+.LEHB9:
+	call	_ZNSt6vectorIhSaIhEEC1ERKS1_
+.LEHE9:
+	movq	192(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L79
+	call	_ZdlPv
+.L79:
+	leaq	192(%rsp), %rcx
+	movl	$._89, %esi
+	movl	$1, %edx
+	leaq	64(%rsp), %rdi
+.LEHB10:
+	call	_ZNSt6vectorIhSaIhEEC1ESt16initializer_listIhERKS0_
+.LEHE10:
+	leaq	32(%rsp), %r13
+	leaq	64(%rsp), %rsi
+	movq	%r13, %rdi
+.LEHB11:
+	call	_ZNSt6vectorIhSaIhEEC1ERKS1_
+.LEHE11:
+	movq	64(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L80
+	call	_ZdlPv
+.L80:
+	leaq	128(%rsp), %rbx
+	movl	$._90, %esi
+	movl	$1, %edx
+	leaq	192(%rsp), %rcx
+	movq	%rbx, %rdi
+.LEHB12:
+	call	_ZNSt6vectorIhSaIhEEC1ESt16initializer_listIhERKS0_
+.LEHE12:
+	leaq	96(%rsp), %r12
+	movq	%rbx, %rsi
+	movq	%r12, %rdi
+.LEHB13:
+	call	_ZNSt6vectorIhSaIhEEC1ERKS1_
+.LEHE13:
+	movq	128(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L81
+	call	_ZdlPv
+.L81:
+	movq	%rbx, %rcx
+	movl	$._91, %esi
+	movl	$1, %edx
+	leaq	192(%rsp), %rdi
+.LEHB14:
+	call	_ZNSt6vectorIhSaIhEEC1ESt16initializer_listIhERKS0_
+.LEHE14:
+	leaq	192(%rsp), %rsi
+	leaq	160(%rsp), %rdi
+.LEHB15:
+	call	_ZNSt6vectorIhSaIhEEC1ERKS1_
+.LEHE15:
+	movq	192(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L82
+	call	_ZdlPv
+.L82:
+	leaq	192(%rsp), %rsi
+	movq	%rsp, 128(%rsp)
+	leaq	160(%rsp), %rdi
+	movq	%r13, 136(%rsp)
+	movq	%rbx, 192(%rsp)
+	movq	%r12, 200(%rsp)
+	call	_ZN4test5ImageIhEaSINS_7TplViewIhNS3_IhS1_S1_St4plusEES1_St10multipliesEEEERS1_RKT_
+	movq	160(%rsp), %rax
+	movl	$_ZSt4cout, %edi
+	movzbl	(%rax), %esi
+.LEHB16:
+	call	_ZNSolsEi
+	movq	%rax, %rdi
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+.LEHE16:
+	movq	160(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L83
+	call	_ZdlPv
+.L83:
+	movq	96(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L84
+	call	_ZdlPv
+.L84:
+	movq	32(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L85
+	call	_ZdlPv
+.L85:
+	movq	(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L165
+	call	_ZdlPv
+.L165:
+	leaq	-24(%rbp), %rsp
+	xorl	%eax, %eax
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L103:
+	.cfi_restore_state
+	movq	192(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L160
+	vzeroupper
+	call	_ZdlPv
+.L102:
+	movq	%rbx, %rdi
+.LEHB17:
+	call	_Unwind_Resume
+.LEHE17:
+.L110:
+	movq	160(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L167
+.L168:
+	vzeroupper
+	call	_ZdlPv
+.L97:
+	movq	96(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L94
+	call	_ZdlPv
+.L94:
+	movq	32(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L91
+	call	_ZdlPv
+.L91:
+	movq	(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L102
+	call	_ZdlPv
+	jmp	.L102
+.L109:
+	movq	%rax, %rbx
+.L167:
+	vzeroupper
+	.p2align 4,,2
+	jmp	.L97
+.L160:
+	vzeroupper
+	.p2align 4,,2
+	jmp	.L102
+.L108:
+	movq	192(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	jne	.L168
+	jmp	.L167
+.L106:
+	movq	128(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L169
+	vzeroupper
+	call	_ZdlPv
+	jmp	.L94
+.L107:
+	movq	%rax, %rbx
+.L169:
+	vzeroupper
+	jmp	.L94
+.L104:
+	movq	64(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L170
+	vzeroupper
+	call	_ZdlPv
+	jmp	.L91
+.L105:
+	movq	%rax, %rbx
+.L170:
+	vzeroupper
+	jmp	.L91
+	.cfi_endproc
+.LFE1638:
+	.section	.gcc_except_table
+.LLSDA1638:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE1638-.LLSDACSB1638
+.LLSDACSB1638:
+	.uleb128 .LEHB8-.LFB1638
+	.uleb128 .LEHE8-.LEHB8
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB9-.LFB1638
+	.uleb128 .LEHE9-.LEHB9
+	.uleb128 .L103-.LFB1638
+	.uleb128 0
+	.uleb128 .LEHB10-.LFB1638
+	.uleb128 .LEHE10-.LEHB10
+	.uleb128 .L105-.LFB1638
+	.uleb128 0
+	.uleb128 .LEHB11-.LFB1638
+	.uleb128 .LEHE11-.LEHB11
+	.uleb128 .L104-.LFB1638
+	.uleb128 0
+	.uleb128 .LEHB12-.LFB1638
+	.uleb128 .LEHE12-.LEHB12
+	.uleb128 .L107-.LFB1638
+	.uleb128 0
+	.uleb128 .LEHB13-.LFB1638
+	.uleb128 .LEHE13-.LEHB13
+	.uleb128 .L106-.LFB1638
+	.uleb128 0
+	.uleb128 .LEHB14-.LFB1638
+	.uleb128 .LEHE14-.LEHB14
+	.uleb128 .L109-.LFB1638
+	.uleb128 0
+	.uleb128 .LEHB15-.LFB1638
+	.uleb128 .LEHE15-.LEHB15
+	.uleb128 .L108-.LFB1638
+	.uleb128 0
+	.uleb128 .LEHB16-.LFB1638
+	.uleb128 .LEHE16-.LEHB16
+	.uleb128 .L110-.LFB1638
+	.uleb128 0
+	.uleb128 .LEHB17-.LFB1638
+	.uleb128 .LEHE17-.LEHB17
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE1638:
+	.section	.text.startup
+	.size	main, .-main
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I__Z3foov, @function
+_GLOBAL__sub_I__Z3foov:
+.LFB1913:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE1913:
+	.size	_GLOBAL__sub_I__Z3foov, .-_GLOBAL__sub_I__Z3foov
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I__Z3foov
+	.section	.rodata
+	.align 32
+	.type	_ZZNK4test7TplViewIhNS_5ImageIhEES2_St4plusE4sizeEvE19__PRETTY_FUNCTION__, @object
+	.size	_ZZNK4test7TplViewIhNS_5ImageIhEES2_St4plusE4sizeEvE19__PRETTY_FUNCTION__, 189
+_ZZNK4test7TplViewIhNS_5ImageIhEES2_St4plusE4sizeEvE19__PRETTY_FUNCTION__:
+	.string	"size_t test::TplView<T, Lhs, Rhs, Op>::size() const [with T = unsigned char; Lhs = test::Image<unsigned char>; Rhs = test::Image<unsigned char>; Op = std::plus; size_t = long unsigned int]"
+	.align 32
+	.type	_ZZNK4test7TplViewIhNS0_IhNS_5ImageIhEES2_St4plusEES2_St10multipliesE4sizeEvE19__PRETTY_FUNCTION__, @object
+	.size	_ZZNK4test7TplViewIhNS0_IhNS_5ImageIhEES2_St4plusEES2_St10multipliesE4sizeEvE19__PRETTY_FUNCTION__, 264
+_ZZNK4test7TplViewIhNS0_IhNS_5ImageIhEES2_St4plusEES2_St10multipliesE4sizeEvE19__PRETTY_FUNCTION__:
+	.ascii	"size_t "
+	.string	"test::TplView<T, Lhs, Rhs, Op>::size() const [with T = unsigned char; Lhs = test::TplView<unsigned char, test::Image<unsigned char>, test::Image<unsigned char>, std::plus>; Rhs = test::Image<unsigned char>; Op = std::multiplies; size_t = long unsigned int]"
+	.type	._91, @object
+	.size	._91, 1
+._91:
+	.zero	1
+	.type	._90, @object
+	.size	._90, 1
+._90:
+	.byte	3
+	.type	._89, @object
+	.size	._89, 1
+._89:
+	.byte	2
+	.type	._88, @object
+	.size	._88, 1
+._88:
+	.byte	1
+	.type	._87, @object
+	.size	._87, 1
+._87:
+	.zero	1
+	.type	._86, @object
+	.size	._86, 1
+._86:
+	.byte	3
+	.type	._85, @object
+	.size	._85, 1
+._85:
+	.byte	2
+	.type	._84, @object
+	.size	._84, 1
+._84:
+	.byte	1
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu/Linaro 4.8.1-10ubuntu9) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
