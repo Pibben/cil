@@ -35,10 +35,11 @@ struct TplView {
 
     uint_fast16_t getSizeX() const { return mLhs.getSizeX(); }
     uint_fast16_t getSizeY() const { return mLhs.getSizeY(); }
+    size_t getNumChannels() const { return mLhs.getNumChannels(); }
 
-    Ret at(uint_fast16_t x, uint_fast16_t y) const {
+    Ret at(uint_fast16_t x, uint_fast16_t y, uint_fast8_t c = 0) const {
         Op op;
-        return op(mLhs.at(x,y), mRhs.at(x,y));
+        return op(mLhs.at(x, y, c), mRhs.at(x, y, c));
     }
 };
 
@@ -55,14 +56,18 @@ struct IndexView {
     void operator=(const U& other) {
         const uint_fast16_t sizeX = other.getSizeX();
         const uint_fast16_t sizeY = other.getSizeX();
+        const size_t numChannels  = other.getNumChannels();
 
         assert(sizeX == mRef.getSizeX());
         assert(sizeY == mRef.getSizeY());
+        assert(numChannels == mRef.getNumChannels());
 
-        for(unsigned int y = 0; y < sizeY; ++y) {
-            for(unsigned int x = 0; x < sizeX; ++x) {
-                if(mIndex.at(x,y)) {
-                    mRef.at(x,y) = other.at(x,y);
+        for(size_t c = 0; c < numChannels; ++c) {
+            for(unsigned int y = 0; y < sizeY; ++y) {
+                for(unsigned int x = 0; x < sizeX; ++x) {
+                    if(mIndex.at(x, y)) {
+                        mRef.at(x, y, c) = other.at(x, y, c);
+                    }
                 }
             }
         }
@@ -119,7 +124,25 @@ public:
     Image() {}
 
     template <typename U>
-    Image(const U& other) : mChannels(other.clone().mChannels) {}
+    Image(const U& other) {
+        static_assert(std::is_same<Base, typename U::Base>::value, "Types must be same!");
+        const uint_fast16_t sizeX = other.getSizeX();
+        const uint_fast16_t sizeY = other.getSizeX();
+        const size_t numChannels  = other.getNumChannels();
+
+        assert(sizeX == other.getSizeX());
+        assert(sizeY == other.getSizeY());
+        assert(numChannels == other.getNumChannels());
+
+        for(size_t c = 0; c < numChannels; ++c) {
+            mChannels.emplace_back(sizeX, sizeY);
+            for(unsigned int y = 0; y < sizeY; ++y) {
+                for(unsigned int x = 0; x < sizeX; ++x) {
+                    at(x, y, c) = other.at(x, y, c);
+                }
+            }
+        }
+    }
 
     Image(uint_fast16_t sizeX, uint_fast16_t sizeY) {
         mChannels.emplace_back(sizeX, sizeY);
@@ -146,17 +169,7 @@ public:
     template <typename U>
     Image& operator=(const U& other) {
         static_assert(std::is_same<Base, typename U::Base>::value, "Types must be same!");
-
-        const uint_fast16_t sizeX = other.getSizeX();
-        const uint_fast16_t sizeY = other.getSizeY();
-        Image tmp(sizeX, sizeY);
-
-        //TODO: Put this in copy constructor
-        for(unsigned int y = 0; y < sizeY; ++y) {
-            for(unsigned int x = 0; x < sizeX; ++x) {
-                tmp.at(x,y) = other.at(x,y);
-            }
-        }
+        Image tmp(other);
 
         swap(tmp);
 
@@ -214,7 +227,7 @@ public:
         return mChannels[channel].getData();
     }
 
-    uint_fast8_t getNumChannels() const {
+    size_t getNumChannels() const {
         return mChannels.size();
     }
 
