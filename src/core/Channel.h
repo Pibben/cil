@@ -12,7 +12,6 @@
 #include <vector>
 
 #include "core/Iterator.h"
-#include "core/Storage.h"
 #include "core/RowIterator.h"
 
 template<typename T>
