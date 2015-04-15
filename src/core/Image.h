@@ -143,10 +143,6 @@ public:
 
     Image(std::string filename);
 
-    ~Image() {
-        mChannels.clear();
-    }
-
     template <typename U>
     Image& operator=(const U& other) {
         static_assert(std::is_same<Base, typename U::Base>::value, "Types must be same!");
@@ -172,10 +168,6 @@ public:
         static_assert(std::is_same<bool, typename U::Base>::value, "Index type must be bool");
 
         return IndexView<Image<T>, U>(*this, index);
-    }
-
-    Image<T> clone() const {
-        return *this;
     }
 
     SubImage<T, Image<T> > subImage(uint_fast16_t x0, uint_fast16_t y0, uint_fast16_t x1, uint_fast16_t y1) {
