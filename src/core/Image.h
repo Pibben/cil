@@ -137,8 +137,8 @@ public:
         fill(val);
     }
 
-    Image(uint_fast16_t sizeX, uint_fast16_t sizeY, uint_fast16_t pitch, T* data, bool transferOwnership = true) {
-        mChannels.emplace_back(sizeX, sizeY, pitch, data, transferOwnership);
+    Image(uint_fast16_t sizeX, uint_fast16_t sizeY, uint_fast16_t pitch, T* data) {
+        mChannels.emplace_back(sizeX, sizeY, pitch, data);
     }
 
     Image(std::string filename);

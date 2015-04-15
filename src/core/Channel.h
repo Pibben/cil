@@ -34,7 +34,7 @@ public:
 
 	Channel(uint_fast16_t sizeX, uint_fast16_t sizeY) : mSizeX(sizeX), mSizeY(sizeY), mPitch(sizeX+17), mStorage(new std::vector<T>(mPitch*mSizeY)), mData(mStorage->data()) {}
 
-	Channel(uint_fast16_t sizeX, uint_fast16_t sizeY, uint_fast16_t pitch, T* data, bool transferOwnership = true) : mSizeX(sizeX), mSizeY(sizeY), mPitch(pitch), mStorage(), mData(data) {}
+	Channel(uint_fast16_t sizeX, uint_fast16_t sizeY, uint_fast16_t pitch, T* data) : mSizeX(sizeX), mSizeY(sizeY), mPitch(pitch), mStorage(), mData(data) {}
 
 	const Channel& operator=(const Channel& other) {
 		Channel tmp(other);

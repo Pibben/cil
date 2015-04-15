@@ -164,7 +164,7 @@ TEST(ShrinkTest, 44) {
 						        2, 12, 22, 32,
 						        3, 13, 23, 33};
 
-	Image<unsigned char> i44(4, 4, 4, data44, false);
+	Image<unsigned char> i44(4, 4, 4, data44);
 
 	Pyramid<unsigned char> p1(i44, 2);
 	Image<unsigned char>& p44s = p1[1];
@@ -184,7 +184,7 @@ TEST(ShrinkTest, 54) {
 						         2, 12, 22, 32, 42,
 						         3, 13, 23, 33, 43};
 
-	Image<unsigned char> i54(5, 4, 5, data45, false);
+	Image<unsigned char> i54(5, 4, 5, data45);
 
 	Pyramid<unsigned char> p2(i54, 2);
 	Image<unsigned char>& p54s = p2[1];
@@ -207,7 +207,7 @@ TEST(ShrinkTest, 55) {
 						         3, 13, 23, 33, 43,
 						         4, 14, 24, 34, 44};
 
-	Image<unsigned char> i55(5, 5, 5, data55, false);
+	Image<unsigned char> i55(5, 5, 5, data55);
 
 	Pyramid<unsigned char> p3(i55, 2);
 	Image<unsigned char>& p55s = p3[1];
